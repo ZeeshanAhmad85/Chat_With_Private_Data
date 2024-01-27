@@ -20,8 +20,8 @@ This project implements a ChatBot system using Streamlit, language models (GPT-3
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/your-repo.git
-cd your-repo
+git clone https://github.com/ZeeshanAhmad85/
+cd https://github.com/ZeeshanAhmad85/Chat_With_Private_Data.git
 
 # Install dependencies
 pip install -r requirements.txt
