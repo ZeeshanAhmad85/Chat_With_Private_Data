@@ -1,0 +1,7 @@
+"protobuf<3.20.0"
+openai
+sentence_transformers
+langchain
+qdrant-client
+python-dotenv
+```
