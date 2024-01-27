@@ -18,7 +18,7 @@ This project implements a ChatBot system using Streamlit, language models (GPT-3
 
 ### Installation
 
-```bash
+
 # Clone the repository
 git clone https://github.com/ZeeshanAhmad85/
 cd https://github.com/ZeeshanAhmad85/Chat_With_Private_Data.git
@@ -37,8 +37,7 @@ Usage
 Run the Streamlit app:
 
 bash
-Copy code
-streamlit run your_script.py
+streamlit run app.py
 
 
 ## Features
@@ -47,8 +46,9 @@ Text splitting options (CharacterTextSplitter, RecursiveCharacterTextSplitter)
 Embedding models (Hugging Face Transformers)
 Vector database integration (Qdrant)
 Conversational responses using GPT-3.5 Turbo
-File Structure
-your_script.py: Main Streamlit application script.
+
+## File Structure
+app.py: Main Streamlit application script.
 data_loader.py: Document processing and loading functions.
 text_splitters.py: Text splitting functions.
 embedding_models.py: Embedding model functions.
