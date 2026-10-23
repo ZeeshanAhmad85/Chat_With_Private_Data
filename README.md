@@ -28,35 +28,35 @@ The following Mermaid sequence and block diagrams illustrate the complete pipeli
 
 ```mermaid
 flowchart TD
-    subgraph Ingestion ["1. Document Ingestion & Validation"]
-        A[User Upload: PDF / DOCX / TXT / MD / ZIP] --> B[DocumentLoaderFactory]
-        B --> C{File Validation}
-        C -- Failed --> Err[Rejection: Oversized / Unsupported / Corrupt]
-        C -- Passed --> D[Text Extraction & Page Metadata Preservation]
-        D --> E[Recursive Semantic Chunker]
-        E --> F[(Document Chunks + Hashes + Spans)]
+    subgraph Ingestion ["1. Document Ingestion and Validation"]
+        A["User Upload: PDF, DOCX, TXT, MD, ZIP"] --> B["DocumentLoaderFactory"]
+        B --> C{"File Validation"}
+        C -- Failed --> Err["Rejection: Oversized, Unsupported, Corrupt"]
+        C -- Passed --> D["Text Extraction and Page Metadata Preservation"]
+        D --> E["Recursive Semantic Chunker"]
+        E --> F[("Document Chunks and Metadata")]
     end
 
-    subgraph Vectorization ["2. Embedding & Vector Indexing"]
-        F --> G[Embedding Engine: Local Random Indexing / BGE / OpenAI]
-        G --> H[(Local Vector Store / Qdrant Cloud)]
+    subgraph Vectorization ["2. Embedding and Vector Indexing"]
+        F --> G["Embedding Engine: Local Random Indexing / BGE / OpenAI"]
+        G --> H[("Local Vector Store or Qdrant Cloud")]
     end
 
     subgraph Retrieval ["3. Information Retrieval"]
-        Q[User Query] --> R{Multi-Query Expansion?}
-        R -- Yes --> S[Generate Sub-queries & Reciprocal Rank Fusion]
-        R -- No --> T[Cosine Similarity Matrix Multiplication]
-        S --> U[Ranked Candidate Chunks]
+        Q["User Query"] --> R{"Multi-Query Expansion?"}
+        R -- Yes --> S["Sub-query Generation and Reciprocal Rank Fusion"]
+        R -- No --> T["Cosine Similarity Matrix Multiplication"]
+        S --> U["Ranked Candidate Chunks"]
         T --> U
-        U --> V[Threshold & Top-K Filter]
+        U --> V["Threshold and Top-K Filter"]
     end
 
-    subgraph Generation ["4. Grounded Generation & Attribution"]
-        V --> W[Grounded Prompt Construction: Context Delimiters]
-        W --> X[Generator: Local Extractive Synthesizer / OpenAI]
-        X --> Y{Sufficient Context?}
-        Y -- No --> Z["Refusal: 'Documents do not contain sufficient information'"]
-        Y -- Yes --> AA[Answer with Verified [Citation] Tokens & Page Links]
+    subgraph Generation ["4. Grounded Generation and Attribution"]
+        V --> W["Grounded Prompt Construction with Context Delimiters"]
+        W --> X["Generator: Local Extractive Synthesizer or OpenAI"]
+        X --> Y{"Sufficient Context?"}
+        Y -- No --> Z["Refusal: Insufficient Information in Documents"]
+        Y -- Yes --> AA["Answer with Verified Citation Tokens and Page Links"]
     end
 ```
 
