@@ -1,19 +1,19 @@
-# from sentence_transformers import SentenceTransformer
-from langchain_community.embeddings import HuggingFaceEmbeddings
+"""
+Legacy embedding models adapter for backwards compatibility.
+Delegates to rag_core.embeddings with safe offline fallback.
+"""
+
+from rag_core.config import EmbeddingConfig
+from rag_core.embeddings.factory import get_embedding_model
 
 
 def apply_embedding_model1():
-    # Load the model
-    embeddings = HuggingFaceEmbeddings(
-    model_name="BAAI/bge-small-en-v1.5",
-    )
+    """Load BAAI/bge-small-en-v1.5 embedding model with safe fallback."""
+    cfg = EmbeddingConfig(provider="huggingface", model_name="BAAI/bge-small-en-v1.5")
+    return get_embedding_model(cfg)
 
-    # Return the embeddings
-    return embeddings
 
 def apply_embedding_model2():
-    embeddings=HuggingFaceEmbeddings(
-        model_name="intfloat/e5-large-v2",
-    )
-
-    return embeddings
+    """Load intfloat/e5-large-v2 embedding model with safe fallback."""
+    cfg = EmbeddingConfig(provider="huggingface", model_name="intfloat/e5-large-v2")
+    return get_embedding_model(cfg)

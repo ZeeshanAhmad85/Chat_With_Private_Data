@@ -1,0 +1,104 @@
+{
+  "experiment_timestamp": "2026-10-24T01:38:31Z",
+  "configuration": {
+    "chunk_size": 500,
+    "chunk_overlap": 100,
+    "top_k": 3,
+    "embedding_dimension": 384
+  },
+  "metrics": {
+    "mean_recall_at_k": 1.0,
+    "mean_precision_at_k": 0.5,
+    "mean_reciprocal_rank": 1.0,
+    "mean_retrieval_latency_ms": 8.77,
+    "mean_faithfulness": 0.86,
+    "refusal_accuracy_on_unanswerable": 1.0
+  },
+  "queries": [
+    {
+      "query_id": "q1",
+      "question": "What components combine parametric and non-parametric memory in RAG?",
+      "is_answerable": true,
+      "target_source": "rag_architecture_overview.txt",
+      "retrieved_sources": [
+        "rag_architecture_overview.txt",
+        "vector_indexing_tradeoffs.txt",
+        "gdpr_data_privacy.txt"
+      ],
+      "recall@k": 1.0,
+      "precision@k": 0.3333333333333333,
+      "mrr": 1.0,
+      "retrieval_latency_ms": 12.95,
+      "faithfulness": 1.0,
+      "answer": "Retrieval-Augmented Generation (RAG) is an architectural pattern that combines parametric memory  (a pretrained large language model) with non-parametric memory (a dense vector index or document store) [1]."
+    },
+    {
+      "query_id": "q2",
+      "question": "What is the standard chunk overlap used in document chunking?",
+      "is_answerable": true,
+      "target_source": "rag_architecture_overview.txt",
+      "retrieved_sources": [
+        "rag_architecture_overview.txt",
+        "rag_architecture_overview.txt",
+        "gdpr_data_privacy.txt"
+      ],
+      "recall@k": 1.0,
+      "precision@k": 0.6666666666666666,
+      "mrr": 1.0,
+      "retrieval_latency_ms": 10.0,
+      "faithfulness": 1.0,
+      "answer": "In standard dense retrieval, documents are segmented into contiguous text chunks, typically between 200 and 1000 tokens,  with a small overlap such as 50 to 200 tokens to preserve context across chunk boundaries [1]. with a small overlap such as 50 to 200 tokens to preserve context across chunk boundaries [2]."
+    },
+    {
+      "query_id": "q3",
+      "question": "Which GDPR article covers the right to erasure?",
+      "is_answerable": true,
+      "target_source": "gdpr_data_privacy.txt",
+      "retrieved_sources": [
+        "gdpr_data_privacy.txt",
+        "gdpr_data_privacy.txt",
+        "rag_architecture_overview.txt"
+      ],
+      "recall@k": 1.0,
+      "precision@k": 0.6666666666666666,
+      "mrr": 1.0,
+      "retrieval_latency_ms": 5.99,
+      "faithfulness": 1.0,
+      "answer": "Article 17 enshrines the right to erasure ('right to be forgotten'), requiring systems to remove stored personal data upon legitimate request [1]."
+    },
+    {
+      "query_id": "q4",
+      "question": "What trade-off does exact flat indexing have compared to HNSW?",
+      "is_answerable": true,
+      "target_source": "vector_indexing_tradeoffs.txt",
+      "retrieved_sources": [
+        "vector_indexing_tradeoffs.txt",
+        "gdpr_data_privacy.txt",
+        "rag_architecture_overview.txt"
+      ],
+      "recall@k": 1.0,
+      "precision@k": 0.3333333333333333,
+      "mrr": 1.0,
+      "retrieval_latency_ms": 8.9,
+      "faithfulness": 1.0,
+      "answer": "Exact flat indexing computes full brute-force cosine distances across all vectors, guaranteeing 100% recall at O(N) query time [1]."
+    },
+    {
+      "query_id": "q5",
+      "question": "What is the capital city of Australia?",
+      "is_answerable": false,
+      "target_source": "none",
+      "retrieved_sources": [
+        "rag_architecture_overview.txt",
+        "rag_architecture_overview.txt",
+        "gdpr_data_privacy.txt"
+      ],
+      "recall@k": 1.0,
+      "precision@k": 0.0,
+      "mrr": 0.0,
+      "retrieval_latency_ms": 6.0,
+      "faithfulness": 0.3,
+      "answer": "The provided documents do not contain sufficient information to answer this question."
+    }
+  ]
+}

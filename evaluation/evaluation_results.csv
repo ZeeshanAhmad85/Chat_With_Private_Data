@@ -1,0 +1,6 @@
+query_id,question,is_answerable,target_source,recall@k,precision@k,mrr,retrieval_latency_ms,faithfulness
+q1,What components combine parametric and non-parametric memory in RAG?,True,rag_architecture_overview.txt,1.0,0.3333333333333333,1.0,12.95,1.0
+q2,What is the standard chunk overlap used in document chunking?,True,rag_architecture_overview.txt,1.0,0.6666666666666666,1.0,10.0,1.0
+q3,Which GDPR article covers the right to erasure?,True,gdpr_data_privacy.txt,1.0,0.6666666666666666,1.0,5.99,1.0
+q4,What trade-off does exact flat indexing have compared to HNSW?,True,vector_indexing_tradeoffs.txt,1.0,0.3333333333333333,1.0,8.9,1.0
+q5,What is the capital city of Australia?,False,none,1.0,0.0,0.0,6.0,0.3
